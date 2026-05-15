@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Porfolio</title>
+    <title>Portfolio - Fokou Fosso Jordan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 
 <body>
-
-
 
     <header class="header">
         <section class="flex">
@@ -21,392 +18,555 @@
                 <div class="fas fa-xmark" id="close-btn"></div>
                 <a href="#home">Home</a>
                 <a href="#about">about</a>
-                <a href="#services">services</a>
-                <a href="#projects">project</a>
+                <a href="#tech-skills">compétences</a>
+                <a href="#experience">expérience</a>
+                <a href="#projects-list">projets</a>
+                <a href="#certifications">certifications</a>
+                <a href="#formation">formation</a>
                 <a href="#contact">contact</a>
-                <a href="#blogs">blogs</a>
             </nav>
             <div id="menu-btn" class="fas fa-bars-staggered"></div>
         </section>
     </header>
 
-
+    <!-- Accueil avec cybersécurité -->
     <div class="home" id="home">
         <section class="flex">
             <div class="content">
                 <span>Bonjour, je m'appelle</span>
                 <h1><em>Fokou Fosso</em> Jordan</h1>
-                <h3>Je suis développeur web full-stack</h3>
-            
-                <p>Passionné par la technologie et l'innovation, je m'efforce de créer des applications robustes et intuitives. Mon parcours académique et mes projets personnels m'ont permis de développer des compétences solides en développement, et je suis toujours à la recherche de nouveaux défis pour améliorer mes compétences.</p>
+                <h3>Je suis développeur full-stack & spécialiste en cybersécurité</h3>
+                <p>Passionné par la cybersécurité et le développement web, je conçois des applications sécurisées et
+                    innovantes. Mon parcours en Master 2 recherche à l’École Polytechnique de Douala me permet d’allier
+                    développement full-stack et protection des données. Fondateur d’une communauté tech de 800+ membres,
+                    je forme aussi aux bonnes pratiques de sécurité.</p>
                 <a href="#" class="btn">Télécharger le CV</a>
             </div>
-            
             <div class="image">
                 <img src="assets/images/1.svg" alt="">
-
             </div>
-
         </section>
-
-
     </div>
 
-    <div class="skills-container">
+    <!-- Compétences techniques (détaillées) -->
+    <section class="tech-skills" id="tech-skills">
         <div class="heading">
-            <span>Mes compétences</span>
-            <h3>Expériences que j'ai</h3>
+            <span>Expertise technique</span>
+            <h3>Compétences pointues</h3>
         </div>
-        <section class="box-container">
+        <div class="box-container">
             <div class="box">
-                <img src="assets/images/html1.webp" alt="">
-                <h3>HTML</h3>
-                <p>Création de structures de page sémantiques et accessibles.</p>
+                <i class="fas fa-code"></i>
+                <h3>Langages</h3>
+                <p>HTML, CSS, JS, PHP, Python, Dart</p>
             </div>
             <div class="box">
-                <img src="assets/images/css1.webp" alt="">
-                <h3>CSS</h3>
-                <p>Stylisation avancée avec des mises en page réactives.</p>
+                <i class="fas fa-layer-group"></i>
+                <h3>Frameworks</h3>
+                <p>Laravel, ReactJS, AngularJS,DJANGO, Vue.js, Flutter, React Native</p>
             </div>
             <div class="box">
-                <img src="assets/images/js.png" alt="">
-                <h3>JAVASCRIPT</h3>
-                <p>Développement d'interactions dynamiques et de fonctionnalités avancées.</p>
+                <i class="fas fa-database"></i>
+                <h3>Bases de données</h3>
+                <p>MySQL, MongoDB, Firebase, SUPABASE</p>
             </div>
             <div class="box">
-                <img src="assets/images/sass.png" alt="">
-                <h3>SASS</h3>
-                <p>Utilisation de préprocesseurs pour une gestion efficace des styles.</p>
+                <i class="fas fa-cloud"></i>
+                <h3>DevOps & Outils</h3>
+                <p>Docker, Git, Linux (Kali), Proxmox VE</p>
             </div>
             <div class="box">
-                <img src="assets/images/jquery1.png" alt="">
-                <h3>JQUERY</h3>
-                <p>Manipulation DOM simplifiée et gestion des événements.</p>
+                <i class="fas fa-shield-alt"></i>
+                <h3>Sécurité</h3>
+                <p>Cryptographie (RSA/AES), détection d'intrusion, Fortinet</p>
             </div>
             <div class="box">
-                <img src="assets/images/Bootstrap_logo.webp" alt="">
-                <h3>BOOTSTRAP</h3>
-                <p>Développement rapide d'interfaces réactives avec des composants préconçus.</p>
+                <i class="fas fa-credit-card"></i>
+                <h3>Paiements</h3>
+                <p>Stripe, PayPal, API bancaires, PayTech, MTN, ORANGE</p>
             </div>
-            <div class="box">
-                <img src="assets/images/php.webp" alt="">
-                <h3>PHP</h3>
-                <p>Création d'applications web dynamiques et gestion de bases de données.</p>
-            </div>
-        </section>
-    </div>
-    
+        </div>
+    </section>
 
-    <section class="about" id="about">
-        <div class="row">
-            <div class="image">
-                <img src="assets/images/education.webp" alt="">
+    <!-- Expérience professionnelle -->
+    <section class="experience" id="experience">
+        <div class="heading">
+            <span>Parcours pro</span>
+            <h3>Expériences significatives</h3>
+        </div>
+        <div class="timeline">
+            <div class="exp-card">
+                <h3>Formateur externe – IAI Cameroun, Douala</h3>
+                <div class="date">2024 – présent</div>
+                <p>Formation en développement web/mobile, sécurité et intégration d’API (AngularJS, Flutter, Stripe).
+                    Conception de modules pédagogiques et suivi de projets académiques.</p>
             </div>
-            <div class="content">
-                <div class="heading">
-                    <span>À propos de moi</span>
-                    <h3>Mon éducation et mes objectifs</h3>
-                    <p class="description">
-                        Je suis actuellement en Master 1 à l'Université de Douala, où je me spécialise en sécurité informatique. Mon parcours académique m'a permis d'acquérir des compétences solides dans ce domaine critique, et je suis déterminé à relever les défis technologiques liés à la cybersécurité.
-                    </p>
-                    <div class="info">
-                        <h3>Informations personnelles</h3>
-                        <div class="flex">
-                            <p><span>Nom :</span> Fokou Fosso</p>
-                            <p><span>Âge :</span> 24 ans</p>
-                            <p><span>Compétences :</span> Sécurité informatique et développement web</p>
-                            <p><span>Expérience :</span> Plus de 2 ans</p>
-                            <p><span>Freelance :</span> Disponible</p>
-                            <p><span>Langues :</span> Anglais, Français</p>
-                        </div>
-                    </div>
-                    <a href="#" class="btn">Télécharger le CV</a>
+            <div class="exp-card">
+                <h3>Fondateur & Responsable – UdemyCodeWarriors</h3>
+                <div class="date">2022 – présent</div>
+                <p>Gestion d’une communauté technologique de 800+ membres. Formations en ligne : JavaScript, Python,
+                    sécurité, Flutter. Accompagnement vers l’insertion professionnelle.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets clés -->
+    <section class="projects-list" id="projects-list">
+        <div class="heading">
+            <span>Réalisations</span>
+            <h3>Projets clés</h3>
+        </div>
+        <div class="grid">
+            <div class="project-card">
+                <h3>Le continent </h3>
+                <div class="date">Laravel + AngularJS + Stripe</div>
+                <p>Intégration de paiement Stripe, gestion produits, commandes, tableau de bord.</p>
+            </div>
+            <div class="project-card">
+                <h3>Messagerie sécurisée (AAA)</h3>
+                <div class="date">Chiffrement hybride RSA/AES</div>
+                <p>Authentification forte, anonymat, échanges cryptés.</p>
+            </div>
+            <div class="project-card">
+                <h3>Détection d’intrusion Linux (AIDE)</h3>
+                <div class="date">Kali Linux</div>
+                <p>Surveillance d’intégrité des fichiers, automatisation des rapports.</p>
+            </div>
+            <div class="project-card">
+                <h3>Application de dons</h3>
+                <div class="date">React Native + PayTech API</div>
+                <p>Paiements mobiles sécurisés pour orphelinats.</p>
+            </div>
+            <div class="project-card">
+                <h3>Virtualisation Proxmox VE</h3>
+                <div class="date">Lab cybersécurité</div>
+                <p>Environnement avec VMs (Kali, Ubuntu, Windows).</p>
+            </div>
+            <div class="project-card">
+                <h3>Gestion de pièces virtuelles</h3>
+                <div class="date">Python</div>
+                <p>Application cross-platform de transactions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications" id="certifications">
+        <div class="heading">
+            <span>Validations</span>
+            <h3>Certifications</h3>
+        </div>
+        <div class="grid">
+            <!-- Certification 1 -->
+            <div class="cert-card">
+                <img src="assets/images/certs/Sound the Alarm Detection and Response.jpeg" alt="Google Cybersecurity"
+                    class="cert-img">
+                <div class="cert-content">
+                    <h3>Sound the Alarm Detection and Response</h3>
+                    <span class="platform">Google (Coursera)</span>
+                    <!-- <p>Play It Safe, Connect and Protect, Tools of the Trade – maîtrise des bases de la sécurité informatique.</p> -->
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="assets/images/certs/Put It to Work Prepare for Cybersecurity Jobs.jpeg" alt="Google Cybersecurity"
+                    class="cert-img">
+                <div class="cert-content">
+                    <h3>Put It to Work Prepare for Cybersecurity Jobs</h3>
+                    <span class="platform">Google (Coursera)</span>
+                    <!-- <p>Play It Safe, Connect and Protect, Tools of the Trade – maîtrise des bases de la sécurité informatique.</p> -->
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="assets/images/certs/Play It Safe Manage Security Risks.jpeg" alt="Google Cybersecurity"
+                    class="cert-img">
+                <div class="cert-content">
+                    <h3>Play It Safe: Manage Security Risks</h3>
+                    <span class="platform">Google (Coursera)</span>
+                    <!-- <p>Play It Safe, Connect and Protect, Tools of the Trade – maîtrise des bases de la sécurité informatique.</p> -->
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="assets/images/certs/Foundations of Cybersecurity.jpeg" alt="Google Cybersecurity"
+                    class="cert-img">
+                <div class="cert-content">
+                    <h3>Foundations of Cybersecurity</h3>
+                    <span class="platform">Google (Coursera)</span>
+                    <!-- <p>Play It Safe, Connect and Protect, Tools of the Trade – maîtrise des bases de la sécurité informatique.</p> -->
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="assets/images/certs/Introduction to AI.jpeg" alt="Google Cybersecurity" class="cert-img">
+                <div class="cert-content">
+                    <h3>Introduction to AI</h3>
+                    <span class="platform">Google (Coursera)</span>
+                    <!-- <p>Play It Safe, Connect and Protect, Tools of the Trade – maîtrise des bases de la sécurité informatique.</p> -->
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="assets/images/certs/Connect and Protect Networks and Network.jpeg" alt="Google Cybersecurity"
+                    class="cert-img">
+                <div class="cert-content">
+                    <h3>Connect and Protect Networks and Network</h3>
+                    <span class="platform">Google (Coursera)</span>
+                    <!-- <p>Play It Safe, Connect and Protect, Tools of the Trade – maîtrise des bases de la sécurité informatique.</p> -->
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="assets/images/certs/Design a mobile app interface with Moqups.jpeg" alt="Google Cybersecurity"
+                    class="cert-img">
+                <div class="cert-content">
+                    <h3>Design a mobile app interface with Moqups</h3>
+                    <span class="platform"> (Coursera)</span>
+                    <!-- <p>Play It Safe, Connect and Protect, Tools of the Trade – maîtrise des bases de la sécurité informatique.</p> -->
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="assets/images/certs/Tools of the Trade Linux and SQL.jpeg" alt="Google Cybersecurity"
+                    class="cert-img">
+                <div class="cert-content">
+                    <h3>Tools of the Trade Linux and SQL</h3>
+                    <span class="platform">Google (Coursera)</span>
+                    <!-- <p>Play It Safe, Connect and Protect, Tools of the Trade – maîtrise des bases de la sécurité informatique.</p> -->
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="assets/images/certs/Assets, Threats, and Vulnerabilities.jpeg" alt="Google Cybersecurity"
+                    class="cert-img">
+                <div class="cert-content">
+                    <h3>Assets, Threats, and Vulnerabilities</h3>
+                    <span class="platform"> Google (Coursera)</span>
+                    <!-- <p>Play It Safe, Connect and Protect, Tools of the Trade – maîtrise des bases de la sécurité informatique.</p> -->
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+
+            <!-- Certification 2 -->
+            <div class="cert-card">
+                <img src="assets/images/certs/fortinet.jpg" alt="Fortinet" class="cert-img">
+                <div class="cert-content">
+                    <h3>Certified Fundamentals in Cybersecurity</h3>
+                    <span class="platform">Fortinet</span>
+                    <p>ID: 9828628230JF – Concepts clés de la cybersécurité et bonnes pratiques.</p>
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+
+            <!-- Certification 3 -->
+            <div class="cert-card">
+                <img src="assets/images/certs/orange-digital.jpg" alt="Orange Digital Center" class="cert-img">
+                <div class="cert-content">
+                    <h3>Docker, Git, Figma</h3>
+                    <span class="platform">Orange Digital Center</span>
+                    <p>Formation aux outils DevOps et design collaboratif.</p>
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i>
+                        Voir sur GitHub</a>
+                </div>
+            </div>
+
+            <!-- Certification 4 -->
+            <div class="cert-card">
+                <img src="assets/images/certs/python.jpeg" alt="Udemy Python" class="cert-img">
+                <div class="cert-content">
+                    <h3>Python Complète 2025</h3>
+                    <span class="platform">Udemy</span>
+                    <!-- <p>69,5h de formation approfondie + stack CSS/JS/PHP et développement web/mobile.</p> -->
+                    <a href="https://github.com/https://github.com/Hfuvy" target="_blank" class="cert-link"><i
+                            class="fab fa-github"></i> Voir sur GitHub</a>
+                </div>
+            </div>
+             <div class="cert-card">
+                <img src="assets/images/certs/tkinter.jpeg" alt="Udemy Python" class="cert-img">
+                <div class="cert-content">
+                    <h3>Python tkinter Complète </h3>
+                    <span class="platform">Udemy</span>
+                    <!-- <p>69,5h de formation approfondie + stack CSS/JS/PHP et développement web/mobile.</p> -->
+                    <a href="https://github.com/https://github.com/Hfuvy" target="_blank" class="cert-link"><i
+                            class="fab fa-github"></i> Voir sur GitHub</a>
                 </div>
             </div>
         </div>
     </section>
-    
-    
+    <!-- Formation -->
+    <section class="formation" id="formation">
+        <div class="heading">
+            <span>Parcours académique</span>
+            <h3>Formation</h3>
+        </div>
+        <div class="grid">
+            <div class="edu-card">
+                <h3>Master 2 Recherche (M2R-LGISDIA)</h3>
+                <p>École Nationale Supérieure Polytechnique de Douala (2025 – présent)</p>
+            </div>
+            <div class="edu-card">
+                <h3>Master 1 Informatique</h3>
+                <p>Université de Douala (2023 – 2024)</p>
+            </div>
+            <div class="edu-card">
+                <h3>Licence 3 Informatique</h3>
+                <p>Université de Douala (2022 – 2023)</p>
+            </div>
+            <div class="edu-card">
+                <h3>Baccalauréat Série C</h3>
+                <p>Lycée d’Anguissa (2020)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Langues et centres d'intérêt -->
+    <section class="lang-interests" id="lang-interests">
+        <div>
+            <h3><i class="fas fa-language"></i> Langues</h3>
+            <p>Français (courant) – Anglais (intermédiaire)</p>
+        </div>
+        <div>
+            <h3><i class="fas fa-heart"></i> Centres d'intérêt</h3>
+            <ul>
+                <li>Cybersécurité</li>
+                <li>Fintech</li>
+                <li>Innovation pédagogique</li>
+                <li>Développement open source</li>
+            </ul>
+        </div>
+        <div class="cv-download">
+            <a href="#" class="btn"><i class="fas fa-download"></i> Télécharger le CV (PDF)</a>
+        </div>
+    </section>
+
+    <!-- Services -->
     <div class="services" id="services">
         <div class="heading">
             <span>Mes services</span>
             <h3>Ce que je propose</h3>
         </div>
-    
         <section class="box-container">
+            <!-- ... (contenu identique à l'original) ... -->
             <div class="box">
-                <div class="icon">
-                    <img src="assets/images/p.png" alt="">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>Développement web</h3>
-                <p>Création d'applications web sécurisées et performantes, avec une attention particulière à la sécurité des données.</p>
+                <div class="icon"><img src="assets/images/p.png" alt=""><i class="fas fa-code"></i></div>
+                <h3>Développement web & mobile</h3>
+                <p>Création d'applications web & mobiles sécurisées et performantes.</p>
             </div>
             <div class="box">
-                <div class="icon">
-                    <img src="assets/images/p.png" alt="">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <h3>Consultation en cybersécurité</h3>
-                <p>Évaluation et amélioration de la sécurité des systèmes informatiques pour protéger vos données sensibles.</p>
+                <div class="icon"><img src="assets/images/p.png" alt=""><i class="fas fa-lock"></i></div>
+                <h3>Consultation cybersécurité</h3>
+                <p>Évaluation et amélioration de la sécurité des systèmes.</p>
             </div>
             <div class="box">
-                <div class="icon">
-                    <img src="assets/images/p.png" alt="">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
+                <div class="icon"><img src="assets/images/p.png" alt=""><i class="fas fa-shield-alt"></i></div>
                 <h3>Formation en sécurité</h3>
-                <p>Sessions de formation sur les meilleures pratiques en matière de cybersécurité et de protection des données.</p>
+                <p>Sessions sur les meilleures pratiques.</p>
             </div>
             <div class="box">
-                <div class="icon">
-                    <img src="assets/images/p.png" alt="">
-                    <i class="fas fa-user-shield"></i>
-                </div>
+                <div class="icon"><img src="assets/images/p.png" alt=""><i class="fas fa-user-shield"></i></div>
                 <h3>Audit de sécurité</h3>
-                <p>Analyse approfondie des systèmes et des applications pour identifier et corriger les vulnérabilités.</p>
+                <p>Analyse et correction des vulnérabilités.</p>
             </div>
             <div class="box">
-                <div class="icon">
-                    <img src="assets/images/p.png" alt="">
-                    <i class="fas fa-network-wired"></i>
-                </div>
+                <div class="icon"><img src="assets/images/p.png" alt=""><i class="fas fa-network-wired"></i></div>
                 <h3>Gestion des incidents</h3>
-                <p>Support dans la gestion des incidents de sécurité et mise en place de plans de réponse.</p>
+                <p>Support et plan de réponse.</p>
             </div>
             <div class="box">
-                <div class="icon">
-                    <img src="assets/images/p.png" alt="">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3>Développement d'outils de sécurité</h3>
-                <p>Création d'outils personnalisés pour améliorer la sécurité des applications et des systèmes.</p>
+                <div class="icon"><img src="assets/images/p.png" alt=""><i class="fas fa-tools"></i></div>
+                <h3>Outils de sécurité</h3>
+                <p>Développement d'outils personnalisés.</p>
             </div>
         </section>
     </div>
-    
+
+    <!-- Projets (galerie) -->
     <section class="projects" id="projects">
         <div class="heading">
-            <span>Mes projets</span>
-            <h3>Mon dernier travail</h3>
+            <span>Galerie</span>
+            <h3>Derniers projets visuels</h3>
         </div>
+
         <div class="box-container">
-            <div class="box">
-                <h3> Site de e-commerce</h3>
-                <img src="assets/images/3.jpg" alt="">
-                <a href="#" class="btn">Voir</a>
-            </div>
-            <div class="box">
-                <h3>Blog personnel</h3>
-                <img src="assets/images/3.jpg" alt="">
-                <a href="#" class="btn">Voir</a>
-            </div>
-            <div class="box">
-                <h3> Application de gestion de tâches</h3>
-                <img src="assets/images/3.jpg" alt="">
-                <a href="#" class="btn">Voir</a>
-            </div>
-            <div class="box">
-                <h3> Portfolio en ligne</h3>
-                <img src="assets/images/3.jpg" alt="">
-                <a href="#" class="btn">Voir</a>
-            </div>
-            <div class="box">
-                <h3> Application de chat en temps réel</h3>
-                <img src="assets/images/3.jpg" alt="">
-                <a href="#" class="btn">Voir</a>
-            </div>
-            <div class="box">
-                <h3>Système de réservation en ligne</h3>
-                <img src="assets/images/3.jpg" alt="">
-                <a href="#" class="btn">Voir</a>
-            </div>
+            <!-- Projet 1 -->
+            <article class="box">
+                <h3>le Continent</h3>
+                <img src="assets/images/p1.png" alt="Aperçu du site e-commerce Le Continent">
+                <a href="https://lecontinent.cm/" class="btn" aria-label="Voir le site e-commerce Le Continent">Voir</a>
+            </article>
+
+            <!-- Projet 2 -->
+            <article class="box">
+                <h3>vote en ligne</h3>
+                <img src="assets/images/p2.PNG" alt="Capture d'écran de l'interface du blog personnel">
+                <a href="https://afrique-innovante.vercel.app" class="btn"
+                    aria-label="Voir le projet de blog personnel">Voir</a>
+            </article>
+
+            <!-- Projet 3 -->
+            <article class="box">
+                <h3>Gestion de tâches</h3>
+                <img src="assets/images/3.jpg" alt="Aperçu de l'application de gestion de tâches">
+                <a href="#" class="btn" aria-label="Voir l'application de gestion de tâches">Voir</a>
+            </article>
+
+            <!-- Projet 4 -->
+            <article class="box">
+                <h3>Portfolio</h3>
+                <img src="assets/images/3.jpg" alt="Aperçu du design du portfolio">
+                <a href="#" class="btn" aria-label="Voir le projet portfolio">Voir</a>
+            </article>
+
+            <!-- Projet 5 -->
+            <article class="box">
+                <h3>Chat temps réel</h3>
+                <img src="assets/images/3.jpg" alt="Interface de l'application de chat en temps réel">
+                <a href="#" class="btn" aria-label="Voir l'application de chat en temps réel">Voir</a>
+            </article>
+
+            <!-- Projet 6 -->
+            <article class="box">
+                <h3>Réservation</h3>
+                <img src="assets/images/3.jpg" alt="Formulaire et calendrier du système de réservation">
+                <a href="#" class="btn" aria-label="Voir le système de réservation">Voir</a>
+            </article>
         </div>
     </section>
-    
+
+
+    <!-- Avis clients -->
     <div class="reviews">
         <section>
-            <div class="heading">
-                <span>Avis des clients</span>
+            <div class="heading"><span>Avis</span>
                 <h3>Que disent-ils ?</h3>
             </div>
             <div class="box-container">
-                <div class="box active">
-                    <img src="assets/images/2.jpg" alt="">
-                    <h3>Client 1</h3>
-                    <span>Développeur</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p>Un excellent travail de développement. Très satisfait des résultats.</p>
+                <div class="box active"><img src="assets/images/2.jpg" alt="">
+                    <h3>Client 1</h3><span>Développeur</span>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                    <p>Excellent travail.</p>
                 </div>
-                <div class="box">
-                    <img src="assets/images/3.jpg" alt="">
-                    <h3>Client 2</h3>
-                    <span>Designer</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p>Un service de qualité et un professionnalisme exemplaire.</p>
+                <div class="box"><img src="assets/images/3.jpg" alt="">
+                    <h3>Client 2</h3><span>Designer</span>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                    <p>Service de qualité.</p>
                 </div>
-                <div class="box">
-                    <img src="assets/images/4.jpg" alt="">
-                    <h3>Client 3</h3>
-                    <span>Entrepreneur</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half"></i>
-                    </div>
-                    <p>Un partenariat fructueux, j'apprécie le travail fourni.</p>
+                <div class="box"><img src="assets/images/4.jpg" alt="">
+                    <h3>Client 3</h3><span>Entrepreneur</span>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i></div>
+                    <p>Partenariat fructueux.</p>
                 </div>
-                <div class="box">
-                    <img src="assets/images/5.jpg" alt="">
-                    <h3>Client 4</h3>
-                    <span>Entrepreneur</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p>Une expérience très positive, je recommande vivement.</p>
+                <div class="box"><img src="assets/images/5.jpg" alt="">
+                    <h3>Client 4</h3><span>Entrepreneur</span>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                    <p>Expérience positive.</p>
                 </div>
-                <div class="box">
-                    <img src="assets/images/6.jpg" alt="">
-                    <h3>Client 5</h3>
-                    <span>Chef de projet</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p>Un travail soigné et respect des délais. Très satisfait.</p>
+                <div class="box"><img src="assets/images/6.jpg" alt="">
+                    <h3>Client 5</h3><span>Chef projet</span>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                    <p>Travail soigné.</p>
                 </div>
             </div>
             <div class="controls">
-                <div id="prev-btn" class="fas fa-angle-left" onclick="prev()"></div>
-                <div id="next-btn" class="fas fa-angle-right" onclick="next()"></div>
+                <div id="prev-btn" class="fas fa-angle-left"></div>
+                <div id="next-btn" class="fas fa-angle-right"></div>
             </div>
         </section>
     </div>
 
+    <!-- Contact -->
     <section class="contact" id="contact">
         <div class="row">
             <div class="form">
-                <div class="heading">
-                    <span>Contactez-moi</span>
-                    <h3>Entrons en contact</h3>
-                    <form action="">
-                        <div class="flex">
-                            <input type="text" placeholder="Votre nom" class="input" required>
-                            <input type="email" placeholder="Votre email" class="input" required>
-                        </div>
-                        <textarea name="" id="" class="input" placeholder="Votre message" required></textarea>
-                        <input type="submit" value="Envoyer le message" class="btn">
-                    </form>
+                <div class="heading"><span>Contact</span>
+                    <h3>Écrivons-nous</h3>
                 </div>
+                <form action="">
+                    <div class="flex"><input type="text" placeholder="Votre nom" class="input" required><input
+                            type="email" placeholder="Votre email" class="input" required></div><textarea class="input"
+                        placeholder="Votre message" required></textarea><input type="submit" value="Envoyer"
+                        class="btn">
+                </form>
             </div>
             <div class="box-container">
-                <div class="box">
-                    <i class="fas fa-phone"></i>
+                <div class="box"><i class="fas fa-phone"></i>
                     <div>
-                        <h3>Mon numéro</h3>
-                        <a href="tel:671628735">671628735</a>
+                        <h3>Téléphone</h3><a href="tel:671628735">671628735</a>
                     </div>
                 </div>
-                <div class="box">
-                    <i class="fas fa-envelope"></i>
+                <div class="box"><i class="fas fa-envelope"></i>
                     <div>
-                        <h3>Mon email</h3>
-                        <a href="mailto:fokoufossojordan@gmail.com">fokoufossojordan@gmail.com</a>
+                        <h3>Email</h3><a href="mailto:fokoufossojordan@gmail.com">fokoufossojordan@gmail.com</a>
                     </div>
                 </div>
-                <div class="box">
-                    <i class="fas fa-map-marker-alt"></i>
+                <div class="box"><i class="fas fa-map-marker-alt"></i>
                     <div>
-                        <h3>Mon adresse</h3>
-                        <a href="#">Douala, Cameroun - 12345</a>
+                        <h3>Adresse</h3><a href="#">Douala, Cameroun</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Blogs -->
     <section class="blogs" id="blogs">
-        <div class="heading">
-            <span>Mes blogs</span>
-            <h3>Dernières nouvelles</h3>
+        <div class="heading"><span>Blog</span>
+            <h3>Dernières actualités</h3>
         </div>
         <div class="box-container">
             <div class="box">
-                <div class="image">
-                    <img src="assets/images/1.jpg" alt="">
-                    <div class="flex">
-                        <span>Admin</span>
-                        <span>Jan 01, 2024</span>
-                    </div>
+                <div class="image"><img src="assets/images/1.jpg" alt="">
+                    <div class="flex"><span>Admin</span><span>Jan 01, 2024</span></div>
                 </div>
                 <div class="content">
-                    <h3><a href="#">Titre du contenu du blog</a></h3>
-                    <p>Un aperçu des dernières tendances en développement web.</p>
-                    <a href="#" class="btn">Lire la suite</a>
+                    <h3><a href="#">Tendances web</a></h3>
+                    <p>Un aperçu des dernières tendances.</p><a href="#" class="btn">Lire</a>
                 </div>
             </div>
             <div class="box">
-                <div class="image">
-                    <img src="assets/images/blogs2.jpg" alt="">
-                    <div class="flex">
-                        <span>Admin</span>
-                        <span>Jan 11, 2024</span>
-                    </div>
+                <div class="image"><img src="assets/images/blogs2.jpg" alt="">
+                    <div class="flex"><span>Admin</span><span>Jan 11, 2024</span></div>
                 </div>
                 <div class="content">
-                    <h3><a href="#">Titre du contenu du blog</a></h3>
-                    <p>Conseils pour optimiser votre site web.</p>
-                    <a href="#" class="btn">Lire la suite</a>
+                    <h3><a href="#">Optimisation site</a></h3>
+                    <p>Conseils pour optimiser votre site.</p><a href="#" class="btn">Lire</a>
                 </div>
             </div>
             <div class="box">
-                <div class="image">
-                    <img src="assets/images/blogs3.webp" alt="">
-                    <div class="flex">
-                        <span>Admin</span>
-                        <span>Jan 21, 2024</span>
-                    </div>
+                <div class="image"><img src="assets/images/blogs3.webp" alt="">
+                    <div class="flex"><span>Admin</span><span>Jan 21, 2024</span></div>
                 </div>
                 <div class="content">
-                    <h3><a href="#">Titre du contenu du blog</a></h3>
-                    <p>Comment choisir les bonnes technologies pour votre projet.</p>
-                    <a href="#" class="btn">Lire la suite</a>
+                    <h3><a href="#">Choix techno</a></h3>
+                    <p>Comment choisir les bonnes technologies.</p><a href="#" class="btn">Lire</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <div class="footer">
         <section class="flex">
-            <div class="share">
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-            <div class="credit"> Créé par <span> | Fokou Fosso Jordan</span> Tous droits réservés !
-            </div>
+            <div class="share"><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i
+                        class="fab fa-whatsapp"></i></a><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i
+                        class="fab fa-github"></i></a></div>
+            <div class="credit">Créé par <span>Fokou Fosso Jordan</span> | Tous droits réservés</div>
         </section>
     </div>
 
