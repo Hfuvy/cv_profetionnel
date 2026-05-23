@@ -723,39 +723,163 @@ section {
 
 .footer {
   background-color: var(--black);
+  padding: 4rem 0 2rem;
+  margin-top: 3rem;
 }
 
 .footer .flex {
-  gap: 2rem;
+  gap: 3rem;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
-.footer .flex .share a {
-  height: 5rem;
-  width: 5rem;
-  border-radius: 0.5rem;
-  line-height: 5rem;
-  font-size: 2.5rem;
-  background-color: var(--white);
-  color: var(--black);
+/* Version 1 & 2 */
+.footer .share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.footer .share a {
+  height: 4.5rem;
+  width: 4.5rem;
+  border-radius: 50%;
+  line-height: 4.5rem;
+  font-size: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
   text-align: center;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Version 2 avec texte */
+.footer .share a span {
+  display: none;
+  margin-left: 0.8rem;
+  font-size: 1.4rem;
+}
+
+.footer .share a:hover {
+  background-color: var(--main-color);
+  color: var(--black);
+  transform: translateY(-0.3rem);
+}
+
+/* Version 2 - hover avec texte */
+@media (min-width: 769px) {
+  .footer .share a {
+    width: auto;
+    border-radius: 3rem;
+    padding: 0 1.8rem;
+    gap: 0.8rem;
+  }
+
+  .footer .share a span {
+    display: inline;
+  }
+}
+
+/* Version 3 - footer complet */
+.footer-links h3,
+.footer-social h3,
+.footer-contact h3 {
+  color: var(--main-color);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.footer-links .links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links .links a,
+.footer-contact a {
+  color: var(--light-color);
+  font-size: 1.4rem;
+  text-transform: none;
+  transition: 0.2s;
+}
+
+.footer-links .links a i,
+.footer-contact a i {
+  color: var(--main-color);
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-links .links a:hover,
+.footer-contact a:hover {
+  color: var(--main-color);
+  padding-left: 0.5rem;
+}
+
+.footer-social .share {
+  gap: 1rem;
+}
+
+.footer-social .share a {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.footer .credit {
+  color: var(--white);
+  font-size: 1.4rem;
+  text-align: center;
+  width: 100%;
+  padding-top: 2rem;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .credit span {
+  color: var(--main-color);
+}
+
+.footer-info {
+  text-align: center;
+}
+
+.footer-info .logo {
+  font-size: 2rem;
+  color: var(--white);
+}
+
+.footer-info .logo i {
+  color: var(--main-color);
   margin-right: 0.5rem;
 }
 
-.footer .flex .share a:hover {
-  background-color: var(--main-color);
+.footer-info p {
+  color: var(--light-color);
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  text-transform: none;
 }
 
-.footer .flex .credit {
-  color: var(--white);
-  font-size: 2rem;
-}
+@media (max-width: 768px) {
+  .footer .flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-.footer .flex .credit span {
-  color: var(--main-color);
+  .footer-links .links a:hover {
+    padding-left: 0;
+  }
+
+  .footer-contact a {
+    display: block;
+  }
 }
 
 /* ========== NOUVELLES SECTIONS POUR CV DÉTAILLÉ ========== */
