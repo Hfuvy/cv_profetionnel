@@ -379,61 +379,84 @@ section {
 
 .projects .box-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 35rem);
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
   gap: 2rem;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: center;
 }
 
 .projects .box-container .box {
+  background: var(--white);
+  border-radius: 1rem;
   overflow: hidden;
-  position: relative;
-  height: 30rem;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  flex-flow: column;
-  align-items: center;
-  border-radius: 0.5rem;
-  background: var(--light-bg);
+  flex-direction: column;
+}
+
+.projects .box-container .box:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
 .projects .box-container .box img {
-  height: 100%;
   width: 100%;
+  height: 22rem;
   object-fit: cover;
-  transition: 0.2s linear;
-  border-radius: 0.5rem;
+  transition: transform 0.5s ease;
 }
 
 .projects .box-container .box:hover img {
-  transform: scale(0.5) translateY(-3rem);
+  transform: scale(1.05);
+}
+
+.projects .box-container .box-content {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .projects .box-container .box h3 {
   font-size: 1.8rem;
-  position: absolute;
   color: var(--black);
   text-transform: uppercase;
-  top: -6rem;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: 0.2s linear;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-.projects .box-container .box:hover h3 {
-  top: 2rem;
-  padding: 2rem;
+.project-desc {
+  font-size: 1.4rem;
+  color: var(--light-black);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-transform: none;
+  flex: 1;
 }
 
 .projects .box-container .box .btn {
-  position: absolute;
-  bottom: -9rem;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: auto 0;
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  align-self: flex-start;
 }
 
-.projects .box-container .box:hover .btn {
-  bottom: 1rem;
+/* Version responsive */
+@media (max-width: 768px) {
+  .projects .box-container {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+  }
+
+  .projects .box-container .box img {
+    height: 18rem;
+  }
+
+  .project-desc {
+    font-size: 1.3rem;
+  }
 }
 
 .reviews {
@@ -857,6 +880,13 @@ section {
   margin-bottom: 0.5rem;
 }
 
+/* Version mobile */
+@media (max-width: 768px) {
+  .projects .box-container {
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   #menu-btn {
     display: inline-block;
@@ -906,93 +936,95 @@ section {
     text-align: center;
   }
 }
+
 /* Certifications améliorées */
 .certifications .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .cert-card {
-    background: var(--white);
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
+  background: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .cert-card:hover {
-    transform: translateY(-0.5rem);
+  transform: translateY(-0.5rem);
 }
 
 .cert-img {
-    width: 100%;
-    height: 18rem;
-    object-fit: cover;
-    border-bottom: 0.3rem solid var(--main-color);
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+  border-bottom: 0.3rem solid var(--main-color);
 }
 
 .cert-content {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .cert-content h3 {
-    font-size: 2rem;
-    color: var(--black);
-    margin: 0;
+  font-size: 2rem;
+  color: var(--black);
+  margin: 0;
 }
 
 .platform {
-    font-size: 1.4rem;
-    color: var(--main-color);
-    background: var(--light-color);
-    display: inline-block;
-    padding: 0.3rem 1rem;
-    border-radius: 2rem;
-    align-self: flex-start;
+  font-size: 1.4rem;
+  color: var(--main-color);
+  background: var(--light-color);
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 2rem;
+  align-self: flex-start;
 }
 
 .cert-content p {
-    font-size: 1.5rem;
-    color: var(--light-black);
-    line-height: 1.5;
-    margin: 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--light-black);
+  line-height: 1.5;
+  margin: 0.5rem 0;
 }
 
 .cert-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: var(--black);
-    color: var(--white);
-    padding: 0.8rem 1.5rem;
-    border-radius: 3rem;
-    font-size: 1.4rem;
-    text-transform: none;
-    transition: 0.2s;
-    width: fit-content;
-    margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.8rem 1.5rem;
+  border-radius: 3rem;
+  font-size: 1.4rem;
+  text-transform: none;
+  transition: 0.2s;
+  width: fit-content;
+  margin-top: 1rem;
 }
 
 .cert-link i {
-    font-size: 1.6rem;
-    color: var(--main-color);
+  font-size: 1.6rem;
+  color: var(--main-color);
 }
 
 .cert-link:hover {
-    background: var(--main-color);
-    color: var(--black);
+  background: var(--main-color);
+  color: var(--black);
 }
 
 .cert-link:hover i {
-    color: var(--black);
+  color: var(--black);
 }
+
 @media (max-width: 450px) {
   html {
     font-size: 50%;
@@ -1002,15 +1034,15 @@ section {
 
 /* Force l'image à respecter les limites du bloc */
 .box img {
-    width: 100%;            
-    height: 200px;         
-    object-fit: cover;      
-    display: block;         
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
 }
 
 
 .box {
-    display: flex;
-    flex-direction: column;
-    height: auto;           
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
