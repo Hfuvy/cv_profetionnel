@@ -10,6 +10,7 @@
     --white: #fff;
     --black: #292930;
     --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --transition: 0.3s ease;
 }
 
 /* ========== RESET ========== */
@@ -83,7 +84,17 @@ section {
     width: 100%;
 }
 
-/* ========== HEADER ========== */
+.btn-outline {
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    color: var(--black);
+}
+
+.btn-outline:hover {
+    color: var(--white);
+}
+
+/* ========== HEADER STICKY ========== */
 .header {
     background-color: var(--white);
     position: sticky;
@@ -91,40 +102,123 @@ section {
     left: 0;
     right: 0;
     z-index: 1000;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.08);
+    transition: all var(--transition);
+}
+
+.header.scrolled {
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.12);
 }
 
 .header .flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1rem 0;
+    transition: padding var(--transition);
+}
+
+.header.scrolled .flex {
+    padding: 0.6rem 0;
 }
 
 .header .flex .logo {
     font-size: 2rem;
     color: var(--black);
+    font-weight: 700;
 }
 
 .header .flex .logo i {
-    text-shadow: var(--box-shadow);
     color: var(--main-color);
     margin-right: 0.5rem;
 }
 
+.header .flex .navbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .header .flex .navbar a {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: var(--light-black);
-    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    transition: color var(--transition);
+    border-bottom: 2px solid transparent;
 }
 
-.header .flex .navbar a:hover {
+.header .flex .navbar a:hover,
+.header .flex .navbar a.active {
     color: var(--black);
+    border-bottom-color: var(--main-color);
 }
 
-#menu-btn {
-    font-size: 4rem;
+/* ========== DROPDOWN ========== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown > a i {
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    transition: var(--transition);
+}
+
+.dropdown:hover > a i {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
     display: none;
-    color: var(--white);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 22rem;
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5rem;
+    padding: 0.8rem 0;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 0.8rem 2rem;
+    color: var(--light-black);
+    font-size: 1.4rem;
+    text-transform: none;
+    transition: 0.2s;
+    border-left: 0.3rem solid transparent;
+    border-bottom: none !important;
+}
+
+.dropdown-content a:hover {
+    color: var(--black);
+    background: var(--light-bg);
+    border-left-color: var(--main-color);
+}
+
+/* ========== MENU MOBILE ========== */
+#menu-btn {
+    font-size: 3.5rem;
+    display: none;
+    color: var(--black);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#menu-btn:hover {
+    color: var(--main-color);
 }
 
 #close-btn {
@@ -134,6 +228,7 @@ section {
     color: var(--white);
     font-size: 4rem;
     display: none;
+    cursor: pointer;
 }
 
 /* ========== HEADING ========== */
@@ -143,15 +238,16 @@ section {
 }
 
 .heading span {
-    padding: 0.5rem;
+    padding: 0.5rem 2rem;
     border-radius: 5rem;
     color: var(--black);
     font-size: 1.8rem;
     background-color: var(--light-color);
+    display: inline-block;
 }
 
 .heading h3 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-top: 1rem;
     color: var(--black);
 }
@@ -162,6 +258,7 @@ section {
     align-items: center;
     flex-wrap: wrap;
     gap: 2rem;
+    min-height: calc(100vh - 8rem);
 }
 
 .home .flex .image {
@@ -187,7 +284,7 @@ section {
 .home .flex .content h1 {
     font-size: 6rem;
     color: var(--black);
-    margin: 1rem;
+    margin: 1rem 0;
 }
 
 .home .flex .content h1 em {
@@ -196,7 +293,7 @@ section {
 }
 
 .home .flex .content h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--black);
 }
 
@@ -205,45 +302,221 @@ section {
     color: var(--light-black);
     line-height: 1.8;
     margin: 1rem 0;
+    text-transform: none;
 }
 
-/* ========== TECH SKILLS ========== */
-.tech-skills .box-container {
+/* ========== STATISTIQUES ========== */
+.stats {
+    background: var(--black);
+    padding: 4rem 2rem;
+}
+
+.stats-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 2rem;
-    align-items: stretch;
-    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.tech-skills .box-container .box {
-    background: var(--light-bg);
-    border-radius: 1rem;
-    padding: 2.5rem;
+.stat-box {
     text-align: center;
-    transition: 0.3s ease;
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: var(--transition);
 }
 
-.tech-skills .box-container .box:hover {
+.stat-box:hover {
     transform: translateY(-0.5rem);
-    box-shadow: var(--box-shadow);
 }
 
-.tech-skills .box-container .box i {
+.stat-box i {
     font-size: 4rem;
     color: var(--main-color);
     margin-bottom: 1rem;
 }
 
-.tech-skills .box-container .box h3 {
-    font-size: 2rem;
-    color: var(--black);
+.stat-box h3 {
+    font-size: 4rem;
+    color: var(--white);
+    font-weight: 700;
 }
 
-.tech-skills .box-container .box p {
-    font-size: 1.5rem;
-    color: var(--light-black);
+.stat-box p {
+    font-size: 1.6rem;
+    color: var(--light-color);
     margin-top: 0.5rem;
+}
+
+/* ========== ABOUT ========== */
+.about .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about .row .image {
+    flex: 1 1 40rem;
+}
+
+.about .row .image img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.about .row .content {
+    flex: 1 1 40rem;
+}
+
+.about .row .content p {
+    font-size: 1.6rem;
+    color: var(--light-black);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-transform: none;
+}
+
+.about .row .content .info {
+    margin: 1rem 0;
+}
+
+.about .row .content .info h3 {
+    font-size: 2rem;
+    color: var(--black);
+    background: var(--main-color);
+    padding: 1rem 2rem;
+    display: inline-block;
+    border-radius: 0.5rem;
+}
+
+.about .row .content .info .flex {
+    background-color: var(--light-color);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.about .row .content .info .flex p {
+    color: var(--black);
+    font-size: 1.6rem;
+    flex: 1 1 20rem;
+    text-transform: none;
+}
+
+.about .row .content .info .flex p span {
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+/* ========== TIMELINE SECTION ========== */
+.timeline-section {
+    background: var(--light-bg);
+    padding: 4rem 2rem;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0.3rem;
+    height: 100%;
+    background: var(--main-color);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-item .year {
+    background: var(--main-color);
+    color: var(--black);
+    padding: 0.8rem 2rem;
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    min-width: 10rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-item .content {
+    background: var(--white);
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    flex: 1;
+    margin: 0 1.5rem;
+    transition: var(--transition);
+}
+
+.timeline-item .content:hover {
+    transform: scale(1.02);
+}
+
+.timeline-item .content h3 {
+    font-size: 1.8rem;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item .content p {
+    font-size: 1.4rem;
+    color: var(--light-black);
+    text-transform: none;
+}
+
+/* ========== TECH SKILLS ========== */
+.tech-skills {
+    padding: 4rem 2rem;
+}
+
+.badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.badge {
+    background: var(--light-bg);
+    color: var(--black);
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.badge:hover {
+    background: var(--main-color);
+    transform: translateY(-0.3rem);
+    box-shadow: var(--box-shadow);
 }
 
 /* ========== EXPERIENCE ========== */
@@ -257,7 +530,7 @@ section {
     background: var(--light-bg);
     border-radius: 1rem;
     padding: 2.5rem;
-    transition: 0.3s ease;
+    transition: var(--transition);
 }
 
 .exp-card:hover {
@@ -285,6 +558,7 @@ section {
     font-size: 1.5rem;
     color: var(--light-black);
     line-height: 1.6;
+    text-transform: none;
 }
 
 /* ========== PROJECTS LIST ========== */
@@ -298,7 +572,7 @@ section {
     background: var(--light-bg);
     border-radius: 1rem;
     padding: 2.5rem;
-    transition: 0.3s ease;
+    transition: var(--transition);
 }
 
 .project-card:hover {
@@ -326,6 +600,22 @@ section {
     font-size: 1.5rem;
     color: var(--light-black);
     line-height: 1.6;
+    text-transform: none;
+}
+
+.project-card .project-links {
+    margin-top: 1rem;
+}
+
+.project-card .project-links a {
+    color: var(--main-color);
+    font-size: 1.4rem;
+    transition: var(--transition);
+    text-transform: none;
+}
+
+.project-card .project-links a:hover {
+    color: var(--black);
 }
 
 /* ========== CERTIFICATIONS ========== */
@@ -340,7 +630,7 @@ section {
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    transition: 0.3s ease;
+    transition: var(--transition);
     display: flex;
     flex-direction: column;
 }
@@ -385,6 +675,7 @@ section {
     font-size: 1.4rem;
     color: var(--light-black);
     line-height: 1.5;
+    text-transform: none;
 }
 
 .cert-link {
@@ -397,7 +688,7 @@ section {
     border-radius: 3rem;
     font-size: 1.4rem;
     text-transform: none;
-    transition: 0.3s;
+    transition: var(--transition);
     width: fit-content;
     margin-top: auto;
 }
@@ -427,7 +718,7 @@ section {
     background: var(--light-bg);
     border-radius: 1rem;
     padding: 2.5rem;
-    transition: 0.3s ease;
+    transition: var(--transition);
 }
 
 .edu-card:hover {
@@ -444,6 +735,7 @@ section {
 .edu-card p {
     font-size: 1.5rem;
     color: var(--light-black);
+    text-transform: none;
 }
 
 /* ========== LANG INTERESTS ========== */
@@ -459,7 +751,7 @@ section {
 }
 
 .lang-interests>div {
-    flex: 1 1 20rem;
+    flex: 1 1 18rem;
 }
 
 .lang-interests h3 {
@@ -475,6 +767,7 @@ section {
     font-size: 1.6rem;
     color: var(--light-black);
     list-style: none;
+    text-transform: none;
 }
 
 .lang-interests li {
@@ -511,7 +804,7 @@ section {
     padding: 3rem;
     border: 0.2rem solid rgba(255, 255, 255, 0.2);
     border-top-right-radius: 5rem;
-    transition: 0.3s ease;
+    transition: var(--transition);
     text-align: center;
 }
 
@@ -555,6 +848,7 @@ section {
     color: var(--light-color);
     line-height: 1.8;
     font-size: 1.5rem;
+    text-transform: none;
 }
 
 /* ========== PROJECTS GALERIE ========== */
@@ -571,7 +865,7 @@ section {
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    transition: 0.3s ease;
+    transition: var(--transition);
     display: flex;
     flex-direction: column;
 }
@@ -585,6 +879,11 @@ section {
     width: 100%;
     height: 22rem;
     object-fit: cover;
+    transition: var(--transition);
+}
+
+.projects .box-container .box:hover img {
+    transform: scale(1.03);
 }
 
 .projects .box-container .box-content {
@@ -659,7 +958,6 @@ section {
     border-radius: 50%;
     border: 0.3rem solid var(--main-color);
     margin-bottom: 1rem;
-    box-shadow: 0 0 2rem rgba(255, 220, 96, 0.3);
 }
 
 .reviews .box-container .box h3 {
@@ -690,6 +988,7 @@ section {
     line-height: 1.8;
     font-style: italic;
     padding: 0 1rem;
+    text-transform: none;
 }
 
 .reviews .box-container .box p::before {
@@ -733,9 +1032,8 @@ section {
     border-radius: 50%;
     cursor: pointer;
     margin: 0 0.8rem;
-    transition: 0.3s ease;
+    transition: var(--transition);
     display: inline-block;
-    border: 2px solid transparent;
 }
 
 #prev-btn:hover,
@@ -743,7 +1041,89 @@ section {
     background-color: var(--main-color);
     color: var(--black);
     transform: translateY(-0.3rem) scale(1.05);
-    box-shadow: 0 0.5rem 1.5rem rgba(255, 220, 96, 0.4);
+}
+
+/* ========== FAQ ========== */
+.faq {
+    padding: 4rem 2rem;
+    background: var(--light-bg);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-list details {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.faq-list details:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.faq-list details summary {
+    font-size: 1.8rem;
+    color: var(--black);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.faq-list details summary i {
+    color: var(--main-color);
+    transition: var(--transition);
+}
+
+.faq-list details[open] summary i {
+    transform: rotate(90deg);
+}
+
+.faq-list details p {
+    font-size: 1.6rem;
+    color: var(--light-black);
+    line-height: 1.8;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    text-transform: none;
+}
+
+/* ========== CTA ========== */
+.cta {
+    background: var(--black);
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.cta .content h2 {
+    font-size: 4rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.cta .content p {
+    font-size: 1.8rem;
+    color: var(--light-color);
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    text-transform: none;
+    line-height: 1.8;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 /* ========== CONTACT ========== */
@@ -846,7 +1226,7 @@ section {
     justify-content: center;
 }
 
-.blogs .box-container .box .image {
+.blogs .box-container .blog-card .image {
     height: 25rem;
     position: relative;
     margin-bottom: 3.5rem;
@@ -854,18 +1234,18 @@ section {
     border-radius: 0.5rem;
 }
 
-.blogs .box-container .box .image img {
+.blogs .box-container .blog-card .image img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: 0.3s ease;
+    transition: var(--transition);
 }
 
-.blogs .box-container .box:hover .image img {
+.blogs .box-container .blog-card:hover .image img {
     transform: scale(1.05);
 }
 
-.blogs .box-container .box .image .flex {
+.blogs .box-container .blog-card .image .flex {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -881,41 +1261,81 @@ section {
     z-index: 1;
 }
 
-.blogs .box-container .box .image .flex span {
+.blogs .box-container .blog-card .image .flex span {
     color: var(--light-black);
     font-size: 1.6rem;
 }
 
-.blogs .box-container .content {
+.blogs .box-container .blog-card .content {
     text-align: center;
     padding: 0 1rem 1rem;
 }
 
-.blogs .box-container .box .content h3 {
+.blogs .box-container .blog-card .content h3 {
     margin-bottom: 1rem;
 }
 
-.blogs .box-container .box .content h3 a {
+.blogs .box-container .blog-card .content h3 a {
     color: var(--black);
     font-size: 2rem;
 }
 
-.blogs .box-container .box .content h3 a:hover {
+.blogs .box-container .blog-card .content h3 a:hover {
     text-decoration: underline;
 }
 
-.blogs .box-container .box .content p {
+.blogs .box-container .blog-card .content p {
     font-size: 1.5rem;
     color: var(--black);
     line-height: 1.8;
     margin-bottom: 1.5rem;
+    text-transform: none;
+}
+
+/* ========== PARTNERS ========== */
+.partners {
+    background: var(--light-bg);
+    padding: 4rem 2rem;
+}
+
+.partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.partner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--white);
+    padding: 1.5rem 2.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.partner:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.partner i {
+    font-size: 3rem;
+    color: var(--main-color);
+}
+
+.partner span {
+    font-size: 1.6rem;
+    color: var(--black);
+    font-weight: 600;
 }
 
 /* ========== FOOTER ========== */
 .footer {
     background-color: var(--black);
     padding: 4rem 0 2rem;
-    margin-top: 3rem;
 }
 
 .footer .flex {
@@ -946,7 +1366,7 @@ section {
     color: var(--light-color);
     font-size: 1.4rem;
     text-transform: none;
-    transition: 0.2s;
+    transition: var(--transition);
 }
 
 .footer-links .links a i,
@@ -977,7 +1397,7 @@ section {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--white);
     text-align: center;
-    transition: 0.3s ease;
+    transition: var(--transition);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1003,7 +1423,7 @@ section {
     color: var(--main-color);
 }
 
-/* ========== MEDIA QUERIES ========== */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 991px) {
     html {
         font-size: 55%;
@@ -1013,7 +1433,6 @@ section {
 @media (max-width: 768px) {
     #menu-btn {
         display: inline-block;
-        color: var(--black);
     }
 
     #close-btn {
@@ -1027,13 +1446,16 @@ section {
         right: -120%;
         width: 35rem;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         flex-flow: column;
         position: fixed;
         background: var(--black);
-        gap: 2rem;
+        gap: 1.5rem;
+        padding: 6rem 2rem 2rem;
         box-shadow: 0 0 0 calc(100vw - 35rem) rgba(0, 0, 0, 0.7);
-        transition: 0.2s linear;
+        transition: 0.3s ease;
+        z-index: 2000;
+        overflow-y: auto;
     }
 
     .header .flex .navbar.active {
@@ -1042,11 +1464,80 @@ section {
 
     .header .flex .navbar a {
         color: var(--white);
-        font-size: 3rem;
+        font-size: 2rem;
+        margin: 0;
+        border-bottom: none;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
     }
 
     .header .flex .navbar a:hover {
         color: var(--main-color);
+    }
+
+    /* Dropdown mobile */
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .dropdown-content {
+        position: static;
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        opacity: 1;
+        transform: none;
+        min-width: 100%;
+        padding: 0;
+        display: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: var(--light-color);
+        font-size: 1.6rem;
+        padding: 0.8rem 2rem;
+        text-align: center;
+        border-left: none;
+    }
+
+    .dropdown-content a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-left: none;
+    }
+
+    .timeline-container::before {
+        left: 2rem;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 4rem;
+    }
+
+    .timeline-item .year {
+        margin-bottom: 1rem;
+    }
+
+    .timeline-item .content {
+        width: 100%;
+        margin: 0;
     }
 
     .projects .box-container {
@@ -1072,14 +1563,25 @@ section {
         border-top: 1px solid var(--white);
     }
 
-    .reviews .box-container .box {
-        max-width: 100%;
-        padding: 2rem;
-        margin: 1rem;
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .reviews .box-container .box p {
-        font-size: 1.4rem;
+    .stat-box h3 {
+        font-size: 3rem;
+    }
+
+    .cta .content h2 {
+        font-size: 3rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .partner-logos {
+        gap: 1.5rem;
     }
 }
 
@@ -1092,26 +1594,33 @@ section {
         font-size: 4rem;
     }
 
-    .tech-skills .box-container {
-        grid-template-columns: 1fr;
+    .stats-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
     }
 
-    .experience .timeline {
-        grid-template-columns: 1fr;
+    .stat-box h3 {
+        font-size: 2.5rem;
     }
 
-    .projects-list .grid {
-        grid-template-columns: 1fr;
+    .stat-box i {
+        font-size: 3rem;
     }
 
-    .formation .grid {
-        grid-template-columns: 1fr;
+    .badges-container {
+        gap: 0.8rem;
     }
 
-    .services .box-container {
-        grid-template-columns: 1fr;
+    .badge {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
     }
 
+    .tech-skills .box-container,
+    .experience .timeline,
+    .projects-list .grid,
+    .formation .grid,
+    .services .box-container,
     .blogs .box-container {
         grid-template-columns: 1fr;
     }
@@ -1126,5 +1635,36 @@ section {
         padding-left: 0;
         border-bottom: 0.3rem solid var(--main-color);
         padding-bottom: 0.5rem;
+    }
+
+    .partner {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .reviews .box-container .box {
+        max-width: 100%;
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .reviews .box-container .box p {
+        font-size: 1.4rem;
+    }
+
+    .cta .content h2 {
+        font-size: 2.5rem;
+    }
+
+    .cta .content p {
+        font-size: 1.5rem;
+    }
+
+    .faq-list details summary {
+        font-size: 1.5rem;
+    }
+
+    .faq-list details p {
+        font-size: 1.4rem;
     }
 }
