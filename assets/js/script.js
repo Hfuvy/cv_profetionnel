@@ -13,25 +13,33 @@ let menuBtn = document.querySelector('#menu-btn');
 let closeBtn = document.querySelector('#close-btn');
 let navbar = document.querySelector('.header .flex .navbar');
 
-menuBtn.onclick = () => {
-    navbar.classList.add('active');
-    document.body.style.overflow = 'hidden';
-};
+if (menuBtn) {
+    menuBtn.onclick = () => {
+        navbar.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+}
 
-closeBtn.onclick = () => {
-    navbar.classList.remove('active');
-    document.body.style.overflow = 'auto';
-};
+if (closeBtn) {
+    closeBtn.onclick = () => {
+        navbar.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    };
+}
 
 window.onscroll = () => {
-    navbar.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    if (navbar) {
+        navbar.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
 };
 
 document.querySelectorAll('.navbar a').forEach(link => {
     link.onclick = () => {
-        navbar.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        if (navbar) {
+            navbar.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     };
 });
 
@@ -104,8 +112,16 @@ function stopAutoSlide() {
     clearInterval(autoSlideInterval);
 }
 
-document.getElementById('prev-btn').onclick = prevSlide;
-document.getElementById('next-btn').onclick = nextSlide;
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+
+if (prevBtn) {
+    prevBtn.onclick = prevSlide;
+}
+
+if (nextBtn) {
+    nextBtn.onclick = nextSlide;
+}
 
 const reviewsContainer = document.querySelector('.reviews');
 if (reviewsContainer) {
@@ -308,32 +324,9 @@ filterBtns.forEach(btn => {
     });
 });
 
-// ========== THEME TOGGLE (DARK MODE) ==========
-const themeToggle = document.getElementById('themeToggle');
-
-// Vérifier le thème sauvegardé
-if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-theme');
-    if (themeToggle) {
-        themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-    }
-}
-
-if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark-theme');
-        const icon = this.querySelector('i');
-        icon.classList.toggle('fa-moon');
-        icon.classList.toggle('fa-sun');
-        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-        
-        // Animation
-        this.style.transform = 'rotate(360deg)';
-        setTimeout(() => {
-            this.style.transform = 'rotate(0deg)';
-        }, 300);
-    });
-}
+// ========== THEME TOGGLE (DARK MODE) - RETIRÉ ==========
+// Le bouton themeToggle est masqué en CSS, cette fonction est désactivée
+// Le dark mode a été complètement retiré du CSS
 
 // ========== KEYBOARD ACCESSIBILITY DROPDOWN ==========
 document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
@@ -349,5 +342,5 @@ document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
 });
 
 // ========== CONSOLE ==========
-console.log('Portfolio de Fokou Fosso Jordan chargé avec succès !');
+console.log(' Portfolio de Fokou Fosso Jordan chargé avec succès !');
 console.log('Développeur Full-Stack & Spécialiste en Cybersécurité');
