@@ -311,6 +311,7 @@ filterBtns.forEach(btn => {
 // ========== THEME TOGGLE (DARK MODE) ==========
 const themeToggle = document.getElementById('themeToggle');
 
+// Vérifier le thème sauvegardé
 if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-theme');
     if (themeToggle) {
@@ -319,14 +320,34 @@ if (localStorage.getItem('theme') === 'dark') {
 }
 
 if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
+    themeToggle.addEventListener('click', function() {
         document.body.classList.toggle('dark-theme');
-        const icon = themeToggle.querySelector('i');
+        const icon = this.querySelector('i');
         icon.classList.toggle('fa-moon');
         icon.classList.toggle('fa-sun');
         localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+        
+        // Animation
+        this.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+            this.style.transform = 'rotate(0deg)';
+        }, 300);
     });
 }
 
-console.log(' Portfolio de Fokou Fosso Jordan chargé avec succès !');
+// ========== KEYBOARD ACCESSIBILITY DROPDOWN ==========
+document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const dropdown = this.closest('.dropdown');
+            dropdown.classList.toggle('active');
+            const expanded = dropdown.classList.contains('active');
+            this.setAttribute('aria-expanded', expanded);
+        }
+    });
+});
+
+// ========== CONSOLE ==========
+console.log('Portfolio de Fokou Fosso Jordan chargé avec succès !');
 console.log('Développeur Full-Stack & Spécialiste en Cybersécurité');
