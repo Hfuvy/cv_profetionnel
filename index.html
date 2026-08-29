@@ -11,6 +11,9 @@
 
 <body>
 
+    <!-- ========== BARRE DE PROGRESSION ========== -->
+    <div id="progressBar"></div>
+
     <!-- ========== HEADER AVEC NAVBAR FIXE ========== -->
     <header class="header" id="header">
         <section class="flex">
@@ -37,6 +40,9 @@
                 <a href="#services">Services</a>
                 <a href="#contact">Contact</a>
             </nav>
+            <button id="themeToggle" aria-label="Changer le thème">
+                <i class="fas fa-moon"></i>
+            </button>
             <div id="menu-btn" class="fas fa-bars-staggered"></div>
         </section>
     </header>
@@ -213,19 +219,39 @@
         </div>
         <div class="timeline">
             <div class="exp-card">
-                <h3>Formateur externe – IAI Cameroun</h3>
+                <h3><i class="fas fa-shield-alt" style="color: var(--accent); margin-right: 0.8rem;"></i> Consultant en Cybersécurité & Formateur – IAI Cameroun</h3>
                 <div class="date">2024 – présent</div>
-                <p>Formation en développement web/mobile, sécurité et intégration d'API. Conception de modules pédagogiques et suivi de projets académiques.</p>
+                <p>Formation en cybersécurité (cryptographie, analyse de vulnérabilités, sécurité réseau). Conception de modules sur la sécurité des applications web et mobiles. Audit de sécurité et sensibilisation aux bonnes pratiques.</p>
+                <span class="badge-security"><i class="fas fa-lock" style="margin-right: 0.5rem;"></i> Cybersécurité</span>
+                <span class="badge-dev"><i class="fas fa-chalkboard-teacher" style="margin-right: 0.5rem;"></i> Formation</span>
             </div>
             <div class="exp-card">
-                <h3>Fondateur – UdemyCodeWarriors</h3>
+                <h3><i class="fas fa-users" style="color: var(--accent-blue); margin-right: 0.8rem;"></i> Fondateur – UdemyCodeWarriors</h3>
                 <div class="date">2022 – présent</div>
-                <p>Gestion d'une communauté technologique de 800+ membres. Formations en ligne : JavaScript, Python, sécurité, Flutter.</p>
+                <p>Gestion d'une communauté technologique de 800+ membres. Formations spécialisées en cybersécurité, sécurité des API, chiffrement, et bonnes pratiques de développement sécurisé. Organisation de CTF (Capture The Flag) et ateliers de pentesting.</p>
+                <span class="badge-security"><i class="fas fa-lock" style="margin-right: 0.5rem;"></i> Cybersécurité</span>
+                <span class="badge-dev"><i class="fas fa-users" style="margin-right: 0.5rem;"></i> Communauté</span>
             </div>
             <div class="exp-card">
-                <h3>Développeur Full-Stack Freelance</h3>
+                <h3><i class="fas fa-code" style="color: var(--main-color); margin-right: 0.8rem;"></i> Développeur Full-Stack & Sécurité Freelance</h3>
                 <div class="date">2021 – présent</div>
-                <p>Développement d'applications web et mobiles. Spécialisation en e-commerce, paiements sécurisés et architecture backend.</p>
+                <p>Développement d'applications web et mobiles sécurisées. Spécialisation en e-commerce, intégration de paiements sécurisés (Stripe, PayTech), architecture backend robuste, et mise en place de mesures de sécurité (authentification 2FA, chiffrement des données, protection contre les attaques XSS/CSRF).</p>
+                <span class="badge-dev"><i class="fas fa-laptop-code" style="margin-right: 0.5rem;"></i> Full-Stack</span>
+                <span class="badge-security"><i class="fas fa-lock" style="margin-right: 0.5rem;"></i> Sécurité</span>
+            </div>
+            <div class="exp-card">
+                <h3><i class="fas fa-flask" style="color: var(--accent-green); margin-right: 0.8rem;"></i> Analyste en Sécurité – Projet de Recherche (M2R)</h3>
+                <div class="date">2025 – présent</div>
+                <p>Recherche en cybersécurité à l'École Polytechnique de Douala. Étude des vulnérabilités des systèmes d'information, analyse des menaces, et proposition de solutions de protection innovantes. Mise en place de laboratoires de test (Proxmox VE, Kali Linux).</p>
+                <span class="badge-security"><i class="fas fa-lock" style="margin-right: 0.5rem;"></i> Cybersécurité</span>
+                <span class="badge-dev"><i class="fas fa-microscope" style="margin-right: 0.5rem;"></i> Recherche</span>
+            </div>
+            <div class="exp-card">
+                <h3><i class="fas fa-graduation-cap" style="color: #f39c12; margin-right: 0.8rem;"></i> Responsable Sécurité – Projets Academiques</h3>
+                <div class="date">2023 – 2024</div>
+                <p>Supervision de la sécurité des projets étudiants. Mise en place de politiques de sécurité, audits de code, et sensibilisation des équipes aux bonnes pratiques de cybersécurité.</p>
+                <span class="badge-security"><i class="fas fa-lock" style="margin-right: 0.5rem;"></i> Cybersécurité</span>
+                <span class="badge-dev"><i class="fas fa-book" style="margin-right: 0.5rem;"></i> Académique</span>
             </div>
         </div>
     </section>
@@ -279,13 +305,28 @@
             <span>Validations</span>
             <h3>Certifications</h3>
         </div>
+
+        <!-- Filtre -->
+        <div class="cert-filter">
+            <input type="text" id="certSearch" placeholder="Rechercher une certification...">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Toutes</button>
+                <button class="filter-btn" data-filter="google">Google</button>
+                <button class="filter-btn" data-filter="udemy">Udemy</button>
+                <button class="filter-btn" data-filter="datacamp">DataCamp</button>
+                <button class="filter-btn" data-filter="coursera">Coursera</button>
+                <button class="filter-btn" data-filter="fortinet">Fortinet</button>
+            </div>
+        </div>
+
         <div class="grid">
+
             <!-- Google Certifications -->
             <div class="cert-card">
                 <img src="assets/images/certs/Foundations%20of%20Cybersecurity.jpeg" alt="Foundations of Cybersecurity" class="cert-img">
                 <div class="cert-content">
                     <h3>Foundations of Cybersecurity</h3>
-                    <span class="platform">Google (Coursera)</span>
+                    <span class="platform platform-google">Google (Coursera)</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -293,7 +334,7 @@
                 <img src="assets/images/certs/Play%20It%20Safe%20Manage%20Security%20Risks.jpeg" alt="Play It Safe" class="cert-img">
                 <div class="cert-content">
                     <h3>Play It Safe: Manage Security Risks</h3>
-                    <span class="platform">Google (Coursera)</span>
+                    <span class="platform platform-google">Google (Coursera)</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -301,7 +342,7 @@
                 <img src="assets/images/certs/Connect%20and%20Protect%20Networks%20and%20Network.jpeg" alt="Connect and Protect" class="cert-img">
                 <div class="cert-content">
                     <h3>Connect and Protect Networks</h3>
-                    <span class="platform">Google (Coursera)</span>
+                    <span class="platform platform-google">Google (Coursera)</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -309,7 +350,7 @@
                 <img src="assets/images/certs/Tools%20of%20the%20Trade%20Linux%20and%20SQL.jpeg" alt="Tools of the Trade" class="cert-img">
                 <div class="cert-content">
                     <h3>Tools of the Trade: Linux and SQL</h3>
-                    <span class="platform">Google (Coursera)</span>
+                    <span class="platform platform-google">Google (Coursera)</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -317,7 +358,7 @@
                 <img src="assets/images/certs/Assets%2C%20Threats%2C%20and%20Vulnerabilities.jpeg" alt="Assets, Threats, Vulnerabilities" class="cert-img">
                 <div class="cert-content">
                     <h3>Assets, Threats & Vulnerabilities</h3>
-                    <span class="platform">Google (Coursera)</span>
+                    <span class="platform platform-google">Google (Coursera)</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -325,7 +366,7 @@
                 <img src="assets/images/certs/Sound%20the%20Alarm%20Detection%20and%20Response.jpeg" alt="Sound the Alarm" class="cert-img">
                 <div class="cert-content">
                     <h3>Sound the Alarm: Detection & Response</h3>
-                    <span class="platform">Google (Coursera)</span>
+                    <span class="platform platform-google">Google (Coursera)</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -333,7 +374,7 @@
                 <img src="assets/images/certs/Put%20It%20to%20Work%20Prepare%20for%20Cybersecurity%20Jobs.jpeg" alt="Put It to Work" class="cert-img">
                 <div class="cert-content">
                     <h3>Put It to Work: Cybersecurity Jobs</h3>
-                    <span class="platform">Google (Coursera)</span>
+                    <span class="platform platform-google">Google (Coursera)</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -341,7 +382,7 @@
                 <img src="assets/images/certs/Introduction%20to%20AI.jpeg" alt="Introduction to AI" class="cert-img">
                 <div class="cert-content">
                     <h3>Introduction to AI</h3>
-                    <span class="platform">Google (Coursera)</span>
+                    <span class="platform platform-google">Google (Coursera)</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -349,7 +390,7 @@
                 <img src="assets/images/certs/Design%20a%20mobile%20app%20interface%20with%20Moqups.jpeg" alt="Moqups" class="cert-img">
                 <div class="cert-content">
                     <h3>Design a mobile app interface</h3>
-                    <span class="platform">Coursera</span>
+                    <span class="platform platform-coursera">Coursera</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -357,7 +398,7 @@
                 <img src="assets/images/certs/fortinet.jpg" alt="Fortinet" class="cert-img">
                 <div class="cert-content">
                     <h3>Fortinet Fundamentals</h3>
-                    <span class="platform">Fortinet</span>
+                    <span class="platform platform-fortinet">Fortinet</span>
                     <p>ID: 9828628230JF</p>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
@@ -366,7 +407,7 @@
                 <img src="assets/images/certs/orange-digital.jpg" alt="Orange Digital Center" class="cert-img">
                 <div class="cert-content">
                     <h3>Docker, Git, Figma</h3>
-                    <span class="platform">Orange Digital Center</span>
+                    <span class="platform platform-orange">Orange Digital Center</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -374,7 +415,7 @@
                 <img src="assets/images/certs/python.jpeg" alt="Python" class="cert-img">
                 <div class="cert-content">
                     <h3>Python Complète 2025</h3>
-                    <span class="platform">Udemy</span>
+                    <span class="platform platform-udemy">Udemy</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -382,7 +423,7 @@
                 <img src="assets/images/certs/tkinter.jpeg" alt="Tkinter" class="cert-img">
                 <div class="cert-content">
                     <h3>Python Tkinter Complète</h3>
-                    <span class="platform">Udemy</span>
+                    <span class="platform platform-udemy">Udemy</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -390,7 +431,7 @@
                 <img src="assets/images/certs/web.png" alt="Web Fullstack" class="cert-img">
                 <div class="cert-content">
                     <h3>Développeur Web & Mobile Fullstack</h3>
-                    <span class="platform">Udemy</span>
+                    <span class="platform platform-udemy">Udemy</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -398,7 +439,7 @@
                 <img src="assets/images/certs/git_cursa.png" alt="Git & GitHub" class="cert-img">
                 <div class="cert-content">
                     <h3>Git & GitHub - Formation Complète</h3>
-                    <span class="platform">Cursa</span>
+                    <span class="platform platform-cursa">Cursa</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -406,7 +447,7 @@
                 <img src="assets/images/certs/docker.png" alt="Docker" class="cert-img">
                 <div class="cert-content">
                     <h3>Docker - Formation Complète</h3>
-                    <span class="platform">Cursa</span>
+                    <span class="platform platform-cursa">Cursa</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
@@ -414,10 +455,29 @@
                 <img src="assets/images/projet/ceritf_devops.jpg" alt="DevOps" class="cert-img">
                 <div class="cert-content">
                     <h3>DevOps - Formation Complète</h3>
-                    <span class="platform">Coursera</span>
+                    <span class="platform platform-coursera">Coursera</span>
                     <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
                 </div>
             </div>
+
+            <!-- DataCamp Certifications -->
+            <div class="cert-card">
+                <img src="assets/images/certs/datacamp_intro_python.png" alt="Introduction to Python" class="cert-img">
+                <div class="cert-content">
+                    <h3>Introduction to Python</h3>
+                    <span class="platform platform-datacamp">DataCamp</span>
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
+                </div>
+            </div>
+            <div class="cert-card">
+                <img src="assets/images/certs/datacamp_intermediate_python.png" alt="Intermediate Python" class="cert-img">
+                <div class="cert-content">
+                    <h3>Intermediate Python</h3>
+                    <span class="platform platform-datacamp">DataCamp</span>
+                    <a href="https://github.com/Hfuvy" target="_blank" class="cert-link"><i class="fab fa-github"></i> Voir</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -850,10 +910,6 @@
         <div class="partner-logos">
             <div class="partner"><i class="fas fa-university"></i><span>IAI Cameroun</span></div>
             <div class="partner"><i class="fas fa-chalkboard"></i><span>Udemy</span></div>
-            <!-- <div class="partner"><i class="fas fa-phone"></i><span>Orange</span></div>
-            <div class="partner"><i class="fas fa-chalkboard"></i><span>Udemy</span></div>
-            <div class="partner"><i class="fas fa-shield-alt"></i><span>Fortinet</span></div>
-            <div class="partner"><i class="fab fa-google"></i><span>Google</span></div> -->
         </div>
     </section>
 

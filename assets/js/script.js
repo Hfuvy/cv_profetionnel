@@ -163,11 +163,10 @@ function animateCounters() {
 // ========== SCROLL REVEAL ==========
 function isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
+    const threshold = 100;
     return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight) - threshold &&
+        rect.bottom >= threshold
     );
 }
 
@@ -244,5 +243,90 @@ if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
 }
 
-console.log('🚀 Portfolio de Fokou Fosso Jordan chargé avec succès !');
-console.log('💻 Développeur Full-Stack & Spécialiste en Cybersécurité');
+// ========== SCROLL TO TOP ==========
+const scrollBtn = document.createElement('button');
+scrollBtn.id = 'scrollTopBtn';
+scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollBtn.setAttribute('aria-label', 'Retour en haut');
+document.body.appendChild(scrollBtn);
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        scrollBtn.style.display = 'block';
+    } else {
+        scrollBtn.style.display = 'none';
+    }
+});
+
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ========== BARRE DE PROGRESSION ==========
+const progressBar = document.createElement('div');
+progressBar.id = 'progressBar';
+document.body.prepend(progressBar);
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    progressBar.style.width = progress + '%';
+});
+
+// ========== FILTRE DES CERTIFICATIONS ==========
+const certSearch = document.getElementById('certSearch');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+if (certSearch) {
+    certSearch.addEventListener('input', function(e) {
+        const search = e.target.value.toLowerCase().trim();
+        document.querySelectorAll('.cert-card').forEach(card => {
+            const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+            const platform = card.querySelector('.platform')?.textContent.toLowerCase() || '';
+            card.style.display = (title.includes(search) || platform.includes(search)) ? 'flex' : 'none';
+        });
+    });
+}
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        const filter = this.dataset.filter;
+        document.querySelectorAll('.cert-card').forEach(card => {
+            if (filter === 'all') {
+                card.style.display = 'flex';
+                return;
+            }
+            const platform = card.querySelector('.platform')?.textContent.toLowerCase() || '';
+            card.style.display = platform.includes(filter) ? 'flex' : 'none';
+        });
+
+        if (certSearch) certSearch.value = '';
+    });
+});
+
+// ========== THEME TOGGLE (DARK MODE) ==========
+const themeToggle = document.getElementById('themeToggle');
+
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-theme');
+    if (themeToggle) {
+        themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
+    }
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        const icon = themeToggle.querySelector('i');
+        icon.classList.toggle('fa-moon');
+        icon.classList.toggle('fa-sun');
+        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+    });
+}
+
+console.log(' Portfolio de Fokou Fosso Jordan chargé avec succès !');
+console.log('Développeur Full-Stack & Spécialiste en Cybersécurité');
